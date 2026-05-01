@@ -10,3 +10,5 @@ pub mod nft;
 pub use nft::{EventMeshNFT, NFTMetadata, DataKey};
 pub mod factory;
 pub use factory::Factory;
+pub mod event;
+pub use event::Event;
