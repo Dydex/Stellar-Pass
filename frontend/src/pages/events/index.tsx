@@ -61,7 +61,7 @@ export default function ExplorePage() {
         </div>
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/events" className="text-indigo-400 border-b-2 border-indigo-500 pb-1 text-body-md transition-all">Explore</Link>
-          <Link href="/dashboard/organizer" className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded">Create</Link>
+          <Link href="/create" className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded">Create</Link>
           <Link href="/vendors" className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded">Vendors</Link>
           <Link href="/dashboard" className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded">Activity</Link>
         </nav>

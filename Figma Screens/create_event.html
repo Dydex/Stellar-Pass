@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Event - EventMesh Protocol</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#703700",
+                    "inverse-on-surface": "#303038",
+                    "primary-fixed": "#e1e0ff",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-background": "#e4e1ed",
+                    "on-error": "#690005",
+                    "primary-container": "#8083ff",
+                    "on-secondary": "#003824",
+                    "outline-variant": "#464554",
+                    "surface-variant": "#34343d",
+                    "on-primary-container": "#0d0096",
+                    "surface-bright": "#393841",
+                    "surface-container": "#1f1f27",
+                    "inverse-surface": "#e4e1ed",
+                    "on-error-container": "#ffdad6",
+                    "error-container": "#93000a",
+                    "surface-container-lowest": "#0d0d15",
+                    "secondary-fixed-dim": "#4edea3",
+                    "secondary-container": "#00a572",
+                    "on-surface-variant": "#c7c4d7",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-dim": "#13131b",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "outline": "#908fa0",
+                    "tertiary": "#ffb783",
+                    "surface-container-low": "#1b1b23",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-container-high": "#292932",
+                    "on-tertiary-container": "#452000",
+                    "inverse-primary": "#494bd6",
+                    "surface-tint": "#c0c1ff",
+                    "primary": "#c0c1ff",
+                    "on-surface": "#e4e1ed",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "on-secondary-fixed": "#002113",
+                    "on-secondary-container": "#00311f",
+                    "secondary": "#4edea3",
+                    "surface": "#13131b",
+                    "tertiary-container": "#d97721",
+                    "on-primary-fixed": "#07006c",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#34343d",
+                    "on-primary": "#1000a9",
+                    "background": "#13131b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "container-max": "1280px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "gutter": "24px",
+                    "xl": "48px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "h2": ["Inter"],
+                    "display": ["Inter"],
+                    "mono": ["monospace"],
+                    "h1": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "450"}],
+                    "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #34343d; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #464554; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar Component from JSON -->
+<header class="bg-white/5 dark:bg-slate-950/50 backdrop-blur-lg fixed top-0 w-full border-b border-white/10 shadow-sm flex justify-between items-center px-6 py-3 z-50 font-inter antialiased">
+<div class="flex items-center gap-xl">
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">EventMesh</span>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-sm text-body-sm hover:bg-white/10 transition-colors duration-200 px-sm py-xs rounded" href="#">Explore</a>
+<a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-500 pb-1 font-body-sm text-body-sm opacity-80 scale-95 transition-all" href="#">Create</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-sm text-body-sm hover:bg-white/10 transition-colors duration-200 px-sm py-xs rounded" href="#">Vendors</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-sm text-body-sm hover:bg-white/10 transition-colors duration-200 px-sm py-xs rounded" href="#">Activity</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-surface-container-high border border-outline-variant text-on-surface font-body-sm text-body-sm px-md py-sm rounded-full flex items-center gap-sm hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+                Connect Wallet
+            </button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A minimalist digital avatar placeholder. The image features a subtle, abstract geometric pattern using cool tones of deep indigo and slate grey, designed to look professional and unobtrusive within a dark-mode Web3 application interface. The composition is clean, centered, and devoid of recognizable human features, emphasizing privacy and digital identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmOt8G9Rw8Zj7cyyvj9aCy0Hbht_n3D3HxQ2HIe9u1va7IPjHVJc2gsqGhgb8EaCVirSa0s8BqomLiXb2ceMKvC8oZsgUm4FtzldOfc_n0s1aLXHiB4-jFuWLGWcmeI0fBdRsUbo9kKWGZca682mfwiFevJ8vPaVd1QXccBQMiZPne8Sftg5ykfJnmrYtSzvFpkmvB57HWgwFyfC1i5Xu11W5jFyOo0fMNlHpZCPd-Q_Gj_zvC8pYdHhohNHUhUVdeqW-Rv_Xkoi8"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow mt-[72px] w-full max-w-container-max mx-auto px-gutter py-xl">
+<div class="mb-lg">
+<h1 class="font-h1 text-h1 text-on-background mb-xs">Create Event</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Configure your institutional-grade event parameters and generate NFT ticketing infrastructure.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Form Area (Left Column) -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Section: Basic Details -->
+<section class="bg-surface-container border border-outline-variant rounded-xl p-lg">
+<h2 class="font-h2 text-h2 text-on-surface mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">info</span>
+                        Event Details
+                    </h2>
+<div class="flex flex-col gap-md">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-xs">Event Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="e.g., Global Web3 Summit 2026" type="text"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-xs">Description</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none" placeholder="Describe the core focus and audience of this event..." rows="4"></textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-xs">Date</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">calendar_today</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-[44px] pr-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary transition-all [color-scheme:dark]" type="date"/>
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-xs">Time (UTC)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">schedule</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-[44px] pr-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary transition-all [color-scheme:dark]" type="time"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Gate Fee -->
+<section class="bg-surface-container border border-outline-variant rounded-xl p-lg">
+<h2 class="font-h2 text-h2 text-on-surface mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">payments</span>
+                        Gate Fee Configuration
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-xs">Settlement Currency</label>
+<div class="grid gap-sm"><button class="bg-primary/10 border border-primary text-primary rounded-lg py-sm font-label-caps text-label-caps transition-colors w-full">USDC</button></div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-xs">Ticket Price</label>
+<div class="relative flex items-center">
+<span class="absolute left-md font-mono text-mono text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-[36px] pr-[60px] py-sm font-mono text-mono text-on-surface focus:outline-none focus:border-primary transition-all" placeholder="50.00" step="0.01" type="number"/>
+<span class="absolute right-md font-label-caps text-label-caps text-on-surface-variant uppercase">USDC</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: NFT Ticketing -->
+<section class="bg-surface-container border border-outline-variant rounded-xl p-lg">
+<div class="flex justify-between items-start mb-md">
+<h2 class="font-h2 text-h2 text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">token</span>
+                            NFT Ticketing Assets
+                        </h2>
+<div class="px-sm py-xs bg-secondary/10 border border-secondary/20 rounded text-secondary font-label-caps text-label-caps">ERC-721 Standard</div>
+</div>
+<div class="flex flex-col gap-lg">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-xs">Artwork Upload</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl bg-surface-container-lowest hover:bg-surface-container-high hover:border-primary transition-all cursor-pointer p-xl flex flex-col items-center justify-center text-center group">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-surface">upload_file</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-xs">Drag and drop your media</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Supports JPG, PNG, GIF, MP4 (Max 50MB)</p>
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-xs">Total Supply (Max Attendees)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">group</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-[44px] pr-md py-sm font-mono text-mono text-on-surface focus:outline-none focus:border-primary transition-all" placeholder="1000" type="number"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-md pt-md">
+<button class="font-body-md text-body-md text-primary hover:text-primary-fixed px-lg py-sm transition-colors">Discard</button>
+<button class="bg-primary text-on-primary font-body-md text-body-md font-medium px-xl py-sm rounded-lg hover:bg-primary-fixed-dim transition-all flex items-center gap-sm shadow-[0_0_15px_rgba(192,193,255,0.2)]"><span class="material-symbols-outlined icon-fill text-[20px]">rocket_launch</span> Create Event</button>
+</div>
+</div>
+<!-- Preview Area (Right Column) -->
+<div class="lg:col-span-4">
+<div class="sticky top-[104px]">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-md tracking-widest">Live Preview</h3>
+<!-- Glassmorphic Event Card -->
+<div class="bg-surface-container-highest/40 backdrop-blur-xl border border-outline-variant rounded-xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-1 duration-300">
+<!-- Image Container -->
+<div class="relative h-48 w-full bg-surface-variant">
+<img alt="Event Cover Artwork" class="w-full h-full object-cover opacity-80" data-alt="A wide-angle, high-end photograph of a modern tech conference hall. The image shows a large stage with vibrant blue and purple ambient lighting, rows of sleek seating filled with attendees, and large professional screens displaying code and data. The atmosphere is authentic, professional, and captures the scale of a major industry event." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVaXY4bTr7VYNy73iLWC3jzdTgdl2Kj9LNjERkUtMyAitQfzQqNGyu25hslWnmUTmYJcVCxyTjxRVsapmSHeaf2hVtHMG10Ov45QsEW0R6VP69L7OFOMGgnJHrLLnSkqFoh-3qEzHyRcIV6OTnyC8GIFnlh5ygAGmJhrRsCl9EN8CJKi6BKP1Uc1CtF9BKiCynkfX_fRrzW81sqLeW64FdmGN3Yra4aXE93LytkY0oXCoic_yUGJdGSBeiL5znxD4uTWQfl-0Qp4Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/90 to-transparent"></div>
+<!-- Badges -->
+<div class="absolute top-md left-md flex gap-sm">
+<span class="bg-surface-container/80 backdrop-blur-md border border-outline-variant text-on-surface font-label-caps text-label-caps px-sm py-xs rounded flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px] text-secondary">radio_button_checked</span>
+                                    Upcoming
+                                </span>
+</div>
+</div>
+<!-- Card Content -->
+<div class="p-lg">
+<h4 class="font-h2 text-h2 text-on-surface mb-xs truncate">Global Web3 Summit 2026</h4>
+<div class="flex items-center gap-sm mb-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span class="font-body-sm text-body-sm">Oct 24, 2026 • 14:00 UTC</span>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-md">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs uppercase">Mint Price</p>
+<div class="flex items-baseline gap-xs"><span class="font-mono text-mono text-on-surface">0.05</span>
+<span class="font-label-caps text-label-caps text-primary">USDC</span></div>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs uppercase">Available</p>
+<p class="font-mono text-mono text-on-surface">-- / 1000</p>
+</div>
+</div>
+<button class="w-full mt-lg bg-surface-variant border border-outline-variant text-on-surface-variant font-body-md text-body-md py-sm rounded-lg cursor-not-allowed opacity-50 flex justify-center items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+                                Preview Mode
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

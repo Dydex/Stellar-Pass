@@ -1,111 +1,54 @@
-# Stellar-Pass
+# EventMesh
 
-Stellar-Pass is an event and vendor dApp on Stellar with three core features:
+EventMesh is a decentralized event ticketing and vendor marketplace protocol built on the Stellar network. It uses Soroban smart contracts to handle ticket purchases, mint soulbound NFT attendance passes, and process vendor payments — all settled on-chain with near-instant finality and minimal fees.
 
-1. Event payments in XLM and USDC
-2. NFT attendance passes (Stellar Classic custom assets)
-3. Vendor marketplace payments during events
+Organizers create events and configure NFT ticketing parameters. Attendees buy tickets and receive non-transferable NFT passes as permanent proof of attendance. Vendors at events accept USDC payments directly through the protocol, eliminating the need for separate payment systems.
 
-## Problem
+## Key Features
 
-| Pain Point | Traditional Approach | Stellar-Pass |
-|---|---|---|
-| Payment friction | Multiple processors, high fees, slow settlement | Near-instant settlement on Stellar with low fees |
-| No proof of attendance | Paper/QR tickets that can be lost or forged | On-chain NFT attendance pass |
-| Vendor fragmentation | Cash or separate POS systems | Unified on-chain payments |
-| Stablecoin support | Volatility concerns | USDC support on Stellar |
+- **Soulbound NFT Passes** — Non-transferable, on-chain proof of attendance minted automatically on ticket purchase
+- **On-Chain Ticketing** — Ticket sales, pricing, and attendee tracking enforced by Soroban smart contracts
+- **Vendor Marketplace** — Food, merch, and services ordered and paid for with USDC at events
+- **Instant Settlement** — Stellar transactions confirm in 3–5 seconds with sub-cent fees
+- **Freighter Wallet Integration** — One-click wallet connection for signing transactions
+- **Responsive Dark Mode UI** — Glassmorphism design system built with Material Design 3 tokens
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | Next.js, Tailwind CSS, TypeScript |
-| Backend | Express, TypeScript |
-| Blockchain | Stellar Network (Classic operations) |
-| SDK | @stellar/stellar-sdk |
-| Wallet | @stellar/freighter-api |
-| NFTs | 1-of-1 Stellar Classic custom assets with locked issuers |
-
-## Project Structure
-
-```text
-Stellar-Pass/
-├── README.md
-├── .env
-├── backend/
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── src/
-│       ├── index.ts
-│       ├── middleware/
-│       ├── routes/
-│       ├── services/
-│       └── types/
-└── frontend/
-   ├── package.json
-   ├── next.config.ts
-   ├── tsconfig.json
-   ├── public/
-   └── src/
-      ├── app/
-      ├── components/
-      ├── hooks/
-      ├── lib/
-      └── types/
-```
+| Layer           | Technology                                 |
+| --------------- | ------------------------------------------ |
+| Smart Contracts | Rust, Soroban SDK                          |
+| Frontend        | Next.js 16, TypeScript, Tailwind CSS v4    |
+| Blockchain      | Stellar Network (Soroban)                  |
+| Wallet          | Freighter (`@stellar/freighter-api`)       |
+| SDK             | `@stellar/stellar-sdk`                     |
+| Design          | Inter, Material Symbols, Material Design 3 |
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
-- npm 9+
-- Freighter Wallet browser extension
+- Rust + `soroban-cli` (for contract development)
+- [Freighter Wallet](https://www.freighter.app/) browser extension
 
-### Install
-
-```bash
-git clone https://github.com/your-username/Stellar-Pass.git
-cd Stellar-Pass
-
-cd backend && npm install
-cd ../frontend && npm install
-```
-
-### Run locally
-
-Use two terminals from the repository root.
-
-Terminal 1:
+### Install & Run
 
 ```bash
-cd backend
+git clone https://github.com/AstronLabs/EventMesh.git
+cd EventMesh/frontend
+npm install
 npm run dev
 ```
 
-Terminal 2:
-
-```bash
-cd frontend
-npm run dev
-```
-
-Open http://localhost:3000 and connect Freighter on Stellar Testnet.
-
-## Key Features
-
-- Fast payments on Stellar
-- XLM and USDC support
-- NFT attendance passes
-- Vendor payment flows
-- End-to-end TypeScript
+Open [http://localhost:3000](http://localhost:3000) and connect Freighter on Stellar Testnet.
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push your branch
+2. Create a feature branch (`git checkout -b feat/my-feature`)
+3. Commit your changes (`git commit -m 'feat: add my feature'`)
+4. Push your branch (`git push origin feat/my-feature`)
 5. Open a pull request
 
 ## License

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Wallet &amp; NFT Tickets</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#703700",
+                        "inverse-on-surface": "#303038",
+                        "primary-fixed": "#e1e0ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-background": "#e4e1ed",
+                        "on-error": "#690005",
+                        "primary-container": "#8083ff",
+                        "on-secondary": "#003824",
+                        "outline-variant": "#464554",
+                        "surface-variant": "#34343d",
+                        "on-primary-container": "#0d0096",
+                        "surface-bright": "#393841",
+                        "surface-container": "#1f1f27",
+                        "inverse-surface": "#e4e1ed",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0d0d15",
+                        "secondary-fixed-dim": "#4edea3",
+                        "secondary-container": "#00a572",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-dim": "#13131b",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "outline": "#908fa0",
+                        "tertiary": "#ffb783",
+                        "surface-container-low": "#1b1b23",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-high": "#292932",
+                        "on-tertiary-container": "#452000",
+                        "inverse-primary": "#494bd6",
+                        "surface-tint": "#c0c1ff",
+                        "primary": "#c0c1ff",
+                        "on-surface": "#e4e1ed",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-secondary-fixed": "#002113",
+                        "on-secondary-container": "#00311f",
+                        "secondary": "#4edea3",
+                        "surface": "#13131b",
+                        "tertiary-container": "#d97721",
+                        "on-primary-fixed": "#07006c",
+                        "on-tertiary": "#4f2500",
+                        "surface-container-highest": "#34343d",
+                        "on-primary": "#1000a9",
+                        "background": "#13131b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "container-max": "1280px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "gutter": "24px",
+                        "xl": "48px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Inter"],
+                        "display": ["Inter"],
+                        "mono": ["monospace"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h2": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "450" }],
+                        "h1": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-white/5 dark:bg-slate-950/50 backdrop-blur-lg fixed top-0 w-full border-b border-white/10 shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-6 py-3">
+<div class="flex items-center gap-6">
+<div class="text-xl font-bold tracking-tight text-slate-900 dark:text-white font-display text-h2">EventMesh</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-md text-body-md hover:bg-white/10 transition-colors duration-200 px-3 py-1 rounded-md" href="#">Explore</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-md text-body-md hover:bg-white/10 transition-colors duration-200 px-3 py-1 rounded-md" href="#">Create</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-md text-body-md hover:bg-white/10 transition-colors duration-200 px-3 py-1 rounded-md" href="#">Vendors</a>
+<a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-500 pb-1 font-body-md text-body-md hover:bg-white/10 transition-colors duration-200 px-3 pt-1" href="#">Activity</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-[#6366F1] text-white font-body-sm text-body-sm px-4 py-2 rounded-lg border border-transparent hover:bg-indigo-700 transition-colors">Connect Wallet</button>
+<div class="h-8 w-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a user avatar, styled within a high-stakes blockchain technology aesthetic. The image features clean, professional lighting, reflecting an institutional yet accessible brand personality. Subtle glassmorphism effects and deep dark background tones enhance the premium DApp experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcRDlhBVRz2ejoZJPnrYqAVpPd1IUMFqVgvL8aXJSlBkIOC_KWERNAZsdVf_fmAU-VQxGR9nWaK9ssvuNJmTQTm29eMIc4vT3ERpOiqlHu3pxZwrKTJ1kfhb_OU96xdEOT5x-aJFl4pugaCdloWMASPE-qgwF2rGylpECxFbBUituxJl9fjO_PqS9eZbsRvaHsFBni_-DBmRbN-tSrwmkU3JS9-dm41g8aRHooztZtSnSh0KhwTaCsbz5juAWpR7t91CW6GJP0cbo"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 pt-20">
+<!-- SideNavBar (Shared Component) -->
+<aside class="bg-slate-50 dark:bg-slate-900/80 backdrop-blur-md h-screen w-64 border-r border-slate-200 dark:border-white/5 hidden lg:flex flex-col sticky left-0 top-0">
+<div class="p-6 border-b border-slate-200 dark:border-white/5">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant shrink-0">
+<img alt="Organizer Profile" class="w-full h-full object-cover" data-alt="A professional headshot representing an event organizer, set against a clean, technical background. The lighting is crisp and even, aligning with a Figma-professional aesthetic. The visual tone emphasizes clarity and data integrity, suitable for a sophisticated decentralized web interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCOGgjccbnM0Cf9jou68QBWt2ON66jMXiIEKyEAKRIau_aeQ52WL97uws43spx6yBHI00m07e0an33p8Jm_MbNp715BuYv2NoTq4AoN_kvLNC3cznZ6x0vVf0kp1AlEAN0cYoxDope0WzMGlaKTeq1eG8-vFvYnaE7pUKC-9aJj8bRevmqWWxFARqk5vW6EE-Dm59oYis2BXOCzHBsWhfxNCtrXkzZeeXuzuU7Ga8Kx4gddmk3Ahqj0yeWh7auf_NdpOFD5UtKO-0"/>
+</div>
+<div>
+<div class="text-sm font-medium Inter text-on-surface font-body-md text-body-md">Event Manager</div>
+<div class="text-xs text-on-surface-variant font-body-sm text-body-sm">Institutional Grade</div>
+</div>
+</div>
+<button class="w-full bg-[#6366F1] text-white font-body-sm text-body-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+                    New Event
+                </button>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-white/5 transition-transform duration-150 ease-in-out rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 bg-indigo-500/10 text-indigo-500 rounded-lg px-4 py-2 transition-transform duration-150 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+                    My Tickets
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-white/5 transition-transform duration-150 ease-in-out rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                    Wallet
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-white/5 transition-transform duration-150 ease-in-out rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 max-w-container-max mx-auto w-full p-6 lg:p-xl space-y-xl">
+<!-- Wallet Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="col-span-1 md:col-span-2 bg-surface-container rounded-xl border border-white/10 p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div>
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-2 uppercase tracking-wider">Total Wallet Balance</div>
+<div class="text-display font-display text-on-surface flex items-baseline gap-2">
+                            4,250.00 <span class="text-h2 font-h2 text-on-surface-variant">USDC</span>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-[#6366F1] text-white font-body-sm text-body-sm px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">Deposit</button>
+<button class="bg-white/5 border border-white/10 text-on-surface font-body-sm text-body-sm px-6 py-2 rounded-lg hover:bg-white/10 transition-colors">Withdraw</button>
+</div>
+</div>
+<div class="col-span-1 bg-surface-container rounded-xl border border-white/10 p-6 flex flex-col justify-between">
+<div>
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-2 uppercase tracking-wider">Total Spent (30d)</div>
+<div class="text-h1 font-h1 text-on-surface">1,120.50 <span class="text-body-lg font-body-lg text-on-surface-variant">USDC</span></div>
+</div>
+<div class="mt-4">
+<div class="flex justify-between text-body-sm font-body-sm text-on-surface-variant mb-1">
+<span>Tickets</span>
+<span>850.00</span>
+</div>
+<div class="flex justify-between text-body-sm font-body-sm text-on-surface-variant mb-1">
+<span>Vendors</span>
+<span>270.50</span>
+</div>
+</div>
+</div>
+</section>
+<!-- NFT Tickets Gallery -->
+<section class="space-y-6">
+<div class="flex justify-between items-end border-b border-white/10 pb-4">
+<h2 class="text-h1 font-h1 text-on-surface">My Tickets</h2>
+<button class="text-primary font-body-sm text-body-sm hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Ticket Card 1 -->
+<div class="bg-surface-container rounded-xl border border-white/10 overflow-hidden group hover:border-white/20 transition-all shadow-sm hover:shadow-md relative">
+<div class="absolute top-4 right-4 bg-secondary-container/20 text-secondary border border-secondary/30 px-2 py-1 rounded text-label-caps font-label-caps uppercase backdrop-blur-md z-10">Live</div>
+<div class="h-48 relative">
+<img alt="Tech Summit Event" class="w-full h-full object-cover" data-alt="A visually striking representation of a technology summit event stage. The scene is illuminated by modern, high-key white and blue lighting, emphasizing a clean, professional atmosphere. Generous whitespace and minimalist design elements suggest a sophisticated, premium web3 event experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqXHqmz4t82QzgseKxs7_z7yChz9m3TnKcjTlmv8gA8e057XNws63qWNBfHfQB2Wao__9Rklx7ki3L_2E-musxdhnvmWPm362V_Ey_eebQjQPwabzq9Da_9qxEgwID91PY_K7eG7b4twq-4759RfDG3GHqVaIgq2cCHv2y4m7L35lrr1sN4eelDwea3spUMuru9p3AREp3BgoKzleozBLQou8JEi4WK_SUIjZhCkUU0iYRth2l4CCMtMkMy-kn086Z0FN7E2eJ1bk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+</div>
+<div class="p-6 relative -mt-12 bg-surface-container rounded-t-xl">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-h2 font-h2 text-on-surface leading-tight">Global Web3 Summit 2026</h3>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm mb-4">
+<span class="material-symbols-outlined" style="font-size: 16px;">calendar_today</span>
+                                Oct 15 - 17, 2024
+                            </div>
+<div class="flex justify-between items-center border-t border-white/5 pt-4 mt-2"><div class="font-mono text-mono text-primary truncate max-w-[120px]">#8A39F2...99A1</div>
+<div class="flex gap-2">
+<button class="text-on-surface font-body-sm text-body-sm px-3 py-1 bg-white/5 rounded border border-white/10 hover:bg-white/10 transition-colors">Show QR</button>
+<button class="text-on-surface font-body-sm text-body-sm px-3 py-1 bg-white/5 rounded border border-white/10 hover:bg-white/10 transition-colors">Show NFT</button>
+</div></div>
+</div>
+</div>
+<!-- Ticket Card 2 -->
+<div class="bg-surface-container rounded-xl border border-white/10 overflow-hidden group hover:border-white/20 transition-all shadow-sm hover:shadow-md relative">
+<div class="absolute top-4 right-4 bg-surface-variant text-on-surface-variant border border-outline-variant px-2 py-1 rounded text-label-caps font-label-caps uppercase backdrop-blur-md z-10">Upcoming</div>
+<div class="h-48 relative">
+<img alt="Music Festival" class="w-full h-full object-cover" data-alt="An atmospheric shot of an exclusive music festival at dusk. Subtle glassmorphic tonal layering highlights the premium nature of the event. The lighting is moody yet clear, avoiding heavy neon tropes in favor of a refined, institutional aesthetic suitable for decentralized event platforms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHDLH_LoLF5f_C4aMEuPTr1VRTkiPLjqdf51P1T6puuQByvMbT0oqwbl6JlKVVxsUtlBXTrCDeaEilnVeqthwKFzwxCNoqlB7_hfAqIFDJBM4rB9vWABiOL2Ddvnbk3frG2rqAwZ2VKOMYarKIwaHLjRpfQBjUlV-IvZVGVeXermo8j_Hj4laY6KUznPUnadLASJJAiUo84KxBWH1PoEkTjdW3aStufkUHKpO_vQD9iz5zCUOvNQ-A2wvEPD0pCJouYI9UbDk5crQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+</div>
+<div class="p-6 relative -mt-12 bg-surface-container rounded-t-xl">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-h2 font-h2 text-on-surface leading-tight">Global Web3 Summit 2026</h3>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm mb-4"><span class="material-symbols-outlined" style="font-size: 16px;">calendar_today</span> Nov 02, 2026</div>
+<div class="flex justify-between items-center border-t border-white/5 pt-4 mt-2"><div class="font-mono text-mono text-primary truncate max-w-[120px]">#3F11B7...22C4</div>
+<div class="flex gap-2">
+<button class="text-on-surface font-body-sm text-body-sm px-3 py-1 bg-white/5 rounded border border-white/10 hover:bg-white/10 transition-colors">Show QR</button>
+<button class="text-on-surface font-body-sm text-body-sm px-3 py-1 bg-white/5 rounded border border-white/10 hover:bg-white/10 transition-colors">Show NFT</button>
+</div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Transaction History -->
+<section class="space-y-6">
+<div class="flex justify-between items-end border-b border-white/10 pb-4">
+<h2 class="text-h1 font-h1 text-on-surface">Recent Activity</h2>
+</div>
+<div class="bg-surface-container rounded-xl border border-white/10 overflow-hidden">
+<div class="divide-y divide-white/5">
+<!-- Transaction 1 -->
+<div class="p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center border border-white/10 text-on-surface-variant">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<div>
+<div class="text-on-surface font-body-md text-body-md font-medium">Paid Burger Bliss Vendor</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm">Global Web3 Summit • Oct 15, 12:30 PM</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-on-surface font-mono text-mono">- 15.00 USDC</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm text-xs mt-1 truncate w-24 ml-auto">Tx: 0x8f...4a2c</div>
+</div>
+</div>
+<!-- Transaction 2 -->
+<div class="p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center border border-white/10 text-primary">
+<span class="material-symbols-outlined">local_activity</span>
+</div>
+<div>
+<div class="text-on-surface font-body-md text-body-md font-medium">Purchased VIP Ticket</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm">Decentralized Beats Fest • Oct 10, 09:15 AM</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-on-surface font-mono text-mono">- 250.00 USDC</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm text-xs mt-1 truncate w-24 ml-auto">Tx: 0x2e...1b9f</div>
+</div>
+</div>
+<!-- Transaction 3 -->
+<div class="p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/20 text-secondary">
+<span class="material-symbols-outlined">arrow_downward</span>
+</div>
+<div>
+<div class="text-on-surface font-body-md text-body-md font-medium">Wallet Deposit</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm">From Main Account • Oct 01, 14:00 PM</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-secondary font-mono text-mono">+ 1,000.00 USDC</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm text-xs mt-1 truncate w-24 ml-auto">Tx: 0x9a...7c11</div>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-white/5 bg-surface-variant/30 text-center">
+<button class="text-on-surface-variant font-body-sm text-body-sm hover:text-on-surface transition-colors">Load More History</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer (Shared Component) -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full border-t border-slate-200 dark:border-white/5 py-8 px-6 flex flex-col md:flex-row justify-between items-center z-10 mt-auto">
+<div class="mb-4 md:mb-0 text-center md:text-left">
+<div class="font-bold text-slate-900 dark:text-white font-body-md text-body-md mb-2">EventMesh Protocol</div>
+<div class="text-xs font-light text-slate-500 font-body-sm text-body-sm">© 2026 EventMesh Protocol. Built for the Decentralized Web.</div>
+</div>
+<nav class="flex gap-6">
+<a class="text-slate-500 hover:text-slate-300 font-body-sm text-body-sm hover:underline transition-all" href="#">Terms</a>
+<a class="text-slate-500 hover:text-slate-300 font-body-sm text-body-sm hover:underline transition-all" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-slate-300 font-body-sm text-body-sm hover:underline transition-all" href="#">Docs</a>
+<a class="text-slate-500 hover:text-slate-300 font-body-sm text-body-sm hover:underline transition-all" href="#">Support</a>
+</nav>
+</footer>
+</body></html>

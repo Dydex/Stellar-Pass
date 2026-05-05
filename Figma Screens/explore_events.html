@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore - EventMesh</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#703700",
+                        "inverse-on-surface": "#303038",
+                        "primary-fixed": "#e1e0ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-background": "#e4e1ed",
+                        "on-error": "#690005",
+                        "primary-container": "#8083ff",
+                        "on-secondary": "#003824",
+                        "outline-variant": "#464554",
+                        "surface-variant": "#34343d",
+                        "on-primary-container": "#0d0096",
+                        "surface-bright": "#393841",
+                        "surface-container": "#1f1f27",
+                        "inverse-surface": "#e4e1ed",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0d0d15",
+                        "secondary-fixed-dim": "#4edea3",
+                        "secondary-container": "#00a572",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-dim": "#13131b",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "outline": "#908fa0",
+                        "tertiary": "#ffb783",
+                        "surface-container-low": "#1b1b23",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-high": "#292932",
+                        "on-tertiary-container": "#452000",
+                        "inverse-primary": "#494bd6",
+                        "surface-tint": "#c0c1ff",
+                        "primary": "#c0c1ff",
+                        "on-surface": "#e4e1ed",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-secondary-fixed": "#002113",
+                        "on-secondary-container": "#00311f",
+                        "secondary": "#4edea3",
+                        "surface": "#13131b",
+                        "tertiary-container": "#d97721",
+                        "on-primary-fixed": "#07006c",
+                        "on-tertiary": "#4f2500",
+                        "surface-container-highest": "#34343d",
+                        "on-primary": "#1000a9",
+                        "background": "#13131b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "container-max": "1280px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "gutter": "24px",
+                        "xl": "48px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Inter"],
+                        "display": ["Inter"],
+                        "mono": ["monospace"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h2": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "450" }],
+                        "h1": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full border-b border-white/10 bg-white/5 dark:bg-slate-950/50 backdrop-blur-lg shadow-sm z-50 flex justify-between items-center px-6 py-3">
+<div class="flex items-center gap-6">
+<div class="text-xl font-bold tracking-tight text-slate-900 dark:text-white font-h2 text-h2">EventMesh</div>
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-sm text-body-sm">search</span>
+<input class="bg-surface-container-highest border border-white/10 rounded-full py-2 pl-10 pr-4 text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 transition-colors" placeholder="Search events..." type="text"/>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-500 pb-1 font-body-md text-body-md transition-all opacity-80 scale-95 hover:bg-white/10 transition-colors duration-200" href="#">Explore</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-md text-body-md hover:bg-white/10 transition-colors duration-200" href="#">Create</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-md text-body-md hover:bg-white/10 transition-colors duration-200" href="#">Vendors</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 font-body-md text-body-md hover:bg-white/10 transition-colors duration-200" href="#">Activity</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary font-body-sm text-body-sm font-medium px-4 py-2 rounded-full hover:opacity-90 transition-opacity flex items-center gap-2 border border-primary">
+<span class="material-symbols-outlined font-body-sm text-body-sm">account_balance_wallet</span>
+                Connect Wallet
+            </button>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-white/10 hidden md:block" data-alt="A small circular avatar image showing a professional headshot of a person, used as a user profile picture in a sleek dark mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKndMxbMUvEbXlyu1lcqa4nukirOMZJW5ZGjCi9nMRzS7s7wEzNNGNAzoHNd0oO7-rre57YYXLbc4nlmUmE94QZJEVwypaIfEHelE8jx1s6A7etB09YFucINlX3mAVO1d-raAENCWSkwaDs_xqPLf5bABa0CdAwwVFln8EuKvhSkzrIwbWfblJmAdqt3DWD-ueZAzqpUaAB8o3x8_M09Gjn_ZlBycaH2tIbikGIyaK5HrpTj_PiDrGh3fMloKeq4kqv3U-CbMWoBE"/>
+</div>
+</header>
+<div class="flex flex-1 pt-16">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-full sticky left-0 top-0 h-screen w-64 border-r border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-slate-900/80 backdrop-blur-md pt-20 px-4">
+<div class="mb-8 px-4">
+<div class="text-lg font-black text-indigo-500 font-h2 text-h2 mb-1">Event Manager</div>
+<div class="text-slate-500 text-xs font-body-sm text-body-sm">Institutional Grade</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/5 transition-transform duration-150 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/5 transition-transform duration-150 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+                    My Tickets
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/5 transition-transform duration-150 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                    Wallet
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/5 transition-transform duration-150 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="mt-auto mb-6 px-4">
+<button class="w-full bg-indigo-500/10 text-indigo-500 border border-indigo-500/20 py-2 rounded-lg font-body-sm text-body-sm font-medium hover:bg-indigo-500/20 transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                    New Event
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-6 md:p-12 overflow-y-auto">
+<!-- Hero Section -->
+<section class="mb-12 relative rounded-2xl overflow-hidden border border-white/10 group">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10"></div>
+<img alt="Featured Event" class="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide panoramic shot of a massive technology conference stage illuminated by deep blue and purple neon lights. A large crowd is visible in silhouette in the foreground, looking towards a bright screen. The aesthetic is modern, high-tech, and futuristic, fitting for a Web3 summit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBl-vxP370UuJUy7JZwhtapqBwehyc4UCZpycyCHHG-1Skryqq6TWLpdhamFWzpYre_nWoV_ITq3eT_D5RC3XnmeYa-erQ7mHRVarxCJlMcSPbMaFt_5iWwtdMuSBws5DOxGVOeV8hd9JtUcqAIJAguTuoZs0bBQwPXkmdYyOOU2ng6KQvqGGhmFXleXdEbS4QqX_JOt_1S9TqlthOy0oIEGTBkfbmWdS0VHEHqoZr7Deq5ze48w7eyloM5MaOBJghCdiMnLexgL0"/>
+<div class="absolute bottom-0 left-0 w-full p-8 z-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="inline-block px-3 py-1 bg-primary-container/20 text-primary border border-primary/30 rounded-full font-label-caps text-label-caps mb-4 backdrop-blur-md">FEATURED EVENT</span>
+<h1 class="font-display text-display text-white mb-2">Web3 Builders Conference</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">The premier gathering of developers, founders, and investors shaping the decentralized future. Join us for 3 days of intensive workshops and networking.</p>
+</div>
+<button class="bg-primary text-on-primary font-body-md text-body-md px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity whitespace-nowrap border border-primary/50 shadow-[0_0_15px_rgba(192,193,255,0.3)]">
+                        Get Tickets Now
+                    </button>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto scrollbar-hide">
+<button class="px-4 py-2 bg-surface-container-highest border border-white/10 text-on-surface rounded-full font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-bright transition-colors">All Events</button>
+<button class="px-4 py-2 bg-surface border border-white/5 text-on-surface-variant rounded-full font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-bright transition-colors">Music</button>
+<button class="px-4 py-2 bg-surface border border-white/5 text-on-surface-variant rounded-full font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-bright transition-colors">Tech</button>
+<button class="px-4 py-2 bg-surface border border-white/5 text-on-surface-variant rounded-full font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-bright transition-colors">Art</button>
+<button class="px-4 py-2 bg-surface border border-white/5 text-on-surface-variant rounded-full font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-bright transition-colors">Food</button>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-2 bg-surface border border-white/10 rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+                        Sort by Date
+                    </button>
+<button class="flex items-center gap-2 px-3 py-2 bg-surface border border-white/10 rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filters
+                    </button>
+</div>
+</section>
+<!-- Event Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)] transition-all duration-300 group flex flex-col h-full">
+<div class="relative h-48 overflow-hidden">
+<img alt="Music Festival" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGaSYXnnhcZv-Y2BxFFautJVcUNdJSy4laQsqLg2dGeSckuk9rFEt__1MQOWFQburNHkuquu_e2TzTQjEGgqU-26t89kX-M46MjJ2Jq4Zl2SQcSCjpi6FfHbhRnVrBpP13jYpBnbNngM6tYtG1umPo9dgMUtoaSWY_nQ6ogSlMLGCJH1B8-v9Kqliy6Cyxh3hBX6H6M-7CHK5VnuLf5Jtug6Q3IooEQM871_64SlOFnfA7EIyDwmY47eTdHLX183iqdZp0oMeGZFI"/>
+<div class="absolute bottom-3 left-3 flex items-center gap-1 px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white font-body-sm text-[12px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+        San Francisco
+    </div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="font-h2 text-h2 text-on-surface mb-3">Neon Nights Festival</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm line-clamp-3 mb-6">
+        Experience the pulse of electronic music under the stars with world-class DJs and immersive light shows.
+    </p>
+<div class="mt-auto flex justify-between items-center">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-[12px]">
+<span class="material-symbols-outlined text-[16px]">group</span>
+            142 attending
+        </div>
+<div class="px-3 py-1 bg-primary/10 border border-primary/20 rounded-lg text-primary font-label-caps text-[10px] tracking-wider">
+            NFT PASS
+        </div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)] transition-all duration-300 group flex flex-col h-full">
+<div class="relative h-48 overflow-hidden">
+<img alt="Tech Meetup" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUrTkLhiG71MnZBeTXNpubu9Ht4OGMy_X4FU7DlmlX6TShElBJ8z0i-tASWuaLoe79MrZWxD4lFMtBhPVAYa7lQz1QszmXpdwZIrymCcQEuhaPEO4xd84FHWz5lXMWyNQqWX4mvaeQlwAa2JqnNivclhQVIr-EX_m8NQ1lL_QRRmQOcwvvcmgR742GJgD0Wd1xZpHSZLdnI7GA_MJwwA-q-TFStHq1Ef_K8sZVRYxrgIZgu5iHgjTitFGKDe_7L_Wt8Yzs1pn6tH8"/>
+<div class="absolute bottom-3 left-3 flex items-center gap-1 px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white font-body-sm text-[12px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+        Lagos
+    </div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="font-h2 text-h2 text-on-surface mb-3">DeFi Innovators Summit</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm line-clamp-3 mb-6">
+        Join industry leaders for deep dives into decentralized finance, protocol security, and liquidity mining strategies.
+    </p>
+<div class="mt-auto flex justify-between items-center">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-[12px]">
+<span class="material-symbols-outlined text-[16px]">group</span>
+            87 attending
+        </div>
+<div class="px-3 py-1 bg-primary/10 border border-primary/20 rounded-lg text-primary font-label-caps text-[10px] tracking-wider">
+            NFT PASS
+        </div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)] transition-all duration-300 group flex flex-col h-full">
+<div class="relative h-48 overflow-hidden">
+<img alt="Art Exhibition" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9VAQ0tlpxndubROib8yLPSiejDNYbSMTV5uLjb539m99dAC_F3Ik34ZB93Iyid067b32pkvdqO0oW_1Hh4-d8moYPYLq3-dwK-_wRfE5qh5-SoxR6RUoBVt8DE54uQXoaBbz97bQapnnOieFJjzxl7oVLRFvxuxRjpP6e6IXq86leAweMWUX3z8_6QCLnlguD81i_eKK7lm7nnGuAJfIaMaI50y6whVJugRCuLI_SsCCUIlBvAJoslGoxGZAbh9loALHX3L02WFw"/>
+<div class="absolute bottom-3 left-3 flex items-center gap-1 px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white font-body-sm text-[12px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+        Berlin
+    </div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="font-h2 text-h2 text-on-surface mb-3">Digital Renaissance Gallery</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm line-clamp-3 mb-6">
+        Exploring the intersection of classical art techniques and generative AI in the heart of Europe's creative hub.
+    </p>
+<div class="mt-auto flex justify-between items-center">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-[12px]">
+<span class="material-symbols-outlined text-[16px]">group</span>
+            534 attending
+        </div>
+<div class="px-3 py-1 bg-primary/10 border border-primary/20 rounded-lg text-primary font-label-caps text-[10px] tracking-wider">
+            NFT PASS
+        </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-slate-950 py-8 px-6 flex flex-col md:flex-row justify-between items-center mt-auto">
+<div class="font-bold text-slate-900 dark:text-white font-body-md text-body-md mb-4 md:mb-0">EventMesh Protocol</div>
+<div class="text-xs font-light text-slate-500 font-body-sm text-body-sm mb-4 md:mb-0">© 2026 EventMesh Protocol. Built for the Decentralized Web.</div>
+<div class="flex gap-4">
+<a class="text-slate-500 hover:text-slate-300 font-body-sm text-body-sm hover:underline" href="#">Terms</a>
+<a class="text-slate-500 hover:text-slate-300 font-body-sm text-body-sm hover:underline" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-slate-300 font-body-sm text-body-sm hover:underline" href="#">Docs</a>
+<a class="text-slate-500 hover:text-slate-300 font-body-sm text-body-sm hover:underline" href="#">Support</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Event Vendors - EventMesh</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#703700",
+                        "inverse-on-surface": "#303038",
+                        "primary-fixed": "#e1e0ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-background": "#e4e1ed",
+                        "on-error": "#690005",
+                        "primary-container": "#8083ff",
+                        "on-secondary": "#003824",
+                        "outline-variant": "#464554",
+                        "surface-variant": "#34343d",
+                        "on-primary-container": "#0d0096",
+                        "surface-bright": "#393841",
+                        "surface-container": "#1f1f27",
+                        "inverse-surface": "#e4e1ed",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0d0d15",
+                        "secondary-fixed-dim": "#4edea3",
+                        "secondary-container": "#00a572",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-dim": "#13131b",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "outline": "#908fa0",
+                        "tertiary": "#ffb783",
+                        "surface-container-low": "#1b1b23",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-high": "#292932",
+                        "on-tertiary-container": "#452000",
+                        "inverse-primary": "#494bd6",
+                        "surface-tint": "#c0c1ff",
+                        "primary": "#c0c1ff",
+                        "on-surface": "#e4e1ed",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-secondary-fixed": "#002113",
+                        "on-secondary-container": "#00311f",
+                        "secondary": "#4edea3",
+                        "surface": "#13131b",
+                        "tertiary-container": "#d97721",
+                        "on-primary-fixed": "#07006c",
+                        "on-tertiary": "#4f2500",
+                        "surface-container-highest": "#34343d",
+                        "on-primary": "#1000a9",
+                        "background": "#13131b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "container-max": "1280px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "gutter": "24px",
+                        "xl": "48px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Inter"],
+                        "display": ["Inter"],
+                        "mono": ["monospace"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h2": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "450" }],
+                        "h1": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="bg-white/5 dark:bg-slate-950/50 backdrop-blur-lg fixed top-0 w-full border-b border-white/10 shadow-sm flex justify-between items-center px-6 py-3 z-50 font-inter antialiased">
+<div class="flex items-center gap-lg">
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">EventMesh</span>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/10 transition-colors duration-200 px-3 py-2 rounded-md" href="#">Explore</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/10 transition-colors duration-200 px-3 py-2 rounded-md" href="#">Create</a>
+<a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-500 pb-1 px-3 py-2 transition-all opacity-80 scale-95" href="#">Vendors</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/10 transition-colors duration-200 px-3 py-2 rounded-md" href="#">Activity</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-white/10 border border-white/10 text-indigo-600 dark:text-indigo-400 hover:bg-white/20 transition-colors duration-200 px-4 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-sm">
+                Connect Wallet
+            </button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow pt-[80px] pb-xl w-full max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Left Area: Event Content & Grid -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Header Section -->
+<header class="flex flex-col gap-sm py-md">
+<div class="flex items-center gap-sm text-primary font-label-caps text-label-caps">
+<span class="material-symbols-outlined" style="font-size: 16px;">verified</span>
+<span>Official Vendors</span>
+</div>
+<h1 class="font-h1 text-h1 text-on-background">Metaverse Meetup Food Court</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Secure, on-chain payments for premium food and beverages. Skip the line by ordering directly from your wallet.</p>
+</header>
+<!-- Category Filters -->
+<div class="flex flex-wrap gap-sm">
+<button class="px-md py-sm rounded-full bg-primary text-on-primary font-label-caps text-label-caps flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">restaurant</span>
+                    All Options
+                </button>
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-caps text-label-caps flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">fastfood</span>
+                    Snacks
+                </button>
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-caps text-label-caps flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">local_drink</span>
+                    Drinks
+                </button>
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-caps text-label-caps flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">lunch_dining</span>
+                    Full Meals
+                </button>
+</div>
+<!-- Items Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md pt-md">
+<!-- Item Card 1 -->
+<article class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:border-primary transition-colors duration-300 group">
+<div class="h-48 w-full bg-surface-container relative overflow-hidden">
+<img alt="Gourmet Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A hyper-realistic, appetizing close-up of a premium gourmet burger with thick melting cheddar and fresh greens, served on a sleek matte black slate plate. The lighting is dramatic and moody, utilizing a cinematic dark mode aesthetic with subtle cool blue and purple edge lighting to suggest a high-tech, futuristic Web3 event setting. The background is deeply blurred, focusing entirely on the crisp, rich textures of the food against a dark, minimalist environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk6LmVy4untLyBDea4_ddj9Z5jy6hSNOqFtkA0U_kVKZHkvQ9i75QBlsLAJGq6urRIiQf13KCeKE4opiHKBaf4ljsQ79byRZE8ZjbS2fDSzwD5DdrKiPLSWqB49c37KkHlX56hLlEpaMUtJpbWGSVzLtQABZAHv6fuTGG4Omb6OlW1LNPccW41u9H3ZjTMChtIEQAVmE_S8SDmZT12-iQ2NPSn6beV0ClxapSLqUG-jkknbwBJJxVQFUsvxtFCcehVBqt9E132Ems"/>
+</div>
+<div class="p-md flex flex-col flex-grow justify-between gap-sm">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h2 text-h2 text-on-background">Ether Burger</h3>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-md font-mono text-mono text-xs">8.50 USDC</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Double wagyu smash patty, truffle aioli, aged cheddar on an artisanal brioche bun. Minted fresh on site.</p>
+</div>
+<button class="mt-sm w-full py-sm bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:bg-inverse-primary transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 18px;">add_shopping_cart</span>
+                            Add to Order
+                        </button>
+</div>
+</article>
+<!-- Item Card 2 -->
+<article class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:border-primary transition-colors duration-300 group">
+<div class="h-48 w-full bg-surface-container relative overflow-hidden">
+<img alt="Craft Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, modern glass cup of layered iced craft coffee sitting on a dark grey metallic table. The scene is shot with low-key lighting, emphasizing a sophisticated, moody dark mode aesthetic. Subtle neon pink and blue reflections from nearby futuristic signage bounce off the condensation on the glass. The background features out-of-focus, minimalist architectural elements, suggesting an upscale technology conference environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdSbq6U0pAC1-RuIYDqUlDqzgfpkwxSlqk4ih4gO5bhHPBkts9ygiJ_69lrszKVxqexmTiFIyEfttXFQl_9nQjiDAey73e3I1GYkq2HNI4cxRU5UtSXcUCbg2kSsnR8HuMzSrbxiZD-DaCqQrpRMm0vxkYkDzJ8StZnObQ7SN4Xl_0Yv6VLJ6Y5oWe3IOASnnsUWdybcuGsXxqTfFUP1FkmmNJjpfM629X_RZX1CosrubEk-vd_fiLhehj2KpNlXfW9y1qi6P0xTc"/>
+</div>
+<div class="p-md flex flex-col flex-grow justify-between gap-sm">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h2 text-h2 text-on-background">Node Nitro Cold Brew</h3>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-md font-mono text-mono text-xs">4.00 USDC</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Single-origin Ethiopian beans, slow-steeped for 24 hours and infused with nitrogen for a creamy, stout-like finish.</p>
+</div>
+<button class="mt-sm w-full py-sm bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:bg-inverse-primary transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 18px;">add_shopping_cart</span>
+                            Add to Order
+                        </button>
+</div>
+</article>
+<!-- Item Card 3 -->
+<article class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:border-primary transition-colors duration-300 group">
+<div class="h-48 w-full bg-surface-container relative overflow-hidden">
+<img alt="Gourmet Pizza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A perfectly baked artisan pizza with charred crust, vibrant red tomato sauce, fresh mozzarella blobs, and bright green basil leaves, presented on a dark slate board. The lighting is cinematic and high-contrast, set against a deep black background to match a premium dark UI theme. Sharp focus highlights the texture of the crust and melting cheese, while the edges fade gracefully into the shadows of a sophisticated, high-tech dining space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS_IN1U1fV2wZ07Iqsl6ruo-D1BrhdsnL8AQg6dCc4eYJdeIJswa6gRxf8SBzf_8b-r4jeldvBYMLUtRNpgh_l9X8tg-hte5a6EpUIHAWMdlvQjXqJ0Kx-dpnLdY7ObEnXV_PSSe1HhPQ4DMnLQEVBlZyK5pCuHwRnAMgvnaGuMZcXBhtqlzkIaotN8UFd_9MJ3L0IzrQ0xLikxhfYCD3ZBMIo5BoqKSzI20cdhyjE2z7LjiT8rQx2GtDvS5R6yH_tCD_5lu86qyw"/>
+</div>
+<div class="p-md flex flex-col flex-grow justify-between gap-sm">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h2 text-h2 text-on-background">Consensus Margherita</h3>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-md font-mono text-mono text-xs">12.00 USDC</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Wood-fired sourdough crust, San Marzano tomatoes, fresh mozzarella, and basil. A classic agreement of flavors.</p>
+</div>
+<button class="mt-sm w-full py-sm bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:bg-inverse-primary transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 18px;">add_shopping_cart</span>
+                            Add to Order
+                        </button>
+</div>
+</article>
+</div>
+</div>
+<!-- Right Area: Sticky Cart Sidebar -->
+<aside class="lg:col-span-4 relative">
+<div class="sticky top-[100px] bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col gap-md shadow-lg backdrop-blur-md">
+<div class="flex items-center justify-between border-b border-outline-variant pb-sm">
+<h2 class="font-h2 text-h2 text-on-background flex items-center gap-sm">
+<span class="material-symbols-outlined">shopping_basket</span>
+                        Current Order
+                    </h2>
+<span class="bg-surface-variant text-on-surface-variant px-2 py-1 rounded-md font-label-caps text-label-caps">2 Items</span>
+</div>
+<!-- Cart Items -->
+<div class="flex flex-col gap-sm overflow-y-auto max-h-[409px]">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-background font-medium">1x Ether Burger</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">No Pickles</span>
+</div>
+<span class="font-mono text-mono text-on-background">8.50 USDC</span>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-background font-medium">1x Node Nitro Cold Brew</span>
+</div>
+<span class="font-mono text-mono text-on-background">4.00 USDC</span>
+</div>
+</div>
+<!-- Totals -->
+<div class="border-t border-dashed border-outline-variant pt-md flex flex-col gap-sm">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Subtotal</span>
+<span class="font-mono text-mono">12.50 USDC</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Network Fee (Est)</span>
+<span class="font-mono text-mono">0.05 USDC</span>
+</div>
+<div class="flex justify-between items-end mt-xs">
+<span class="font-body-lg text-body-lg text-on-background font-semibold">Total</span>
+<span class="font-h2 text-h2 text-primary font-mono">12.55 USDC</span>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full mt-sm py-md bg-primary text-on-primary font-label-caps text-label-caps text-center rounded-lg hover:bg-inverse-primary transition-all shadow-[0_0_15px_rgba(192,193,255,0.3)] flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                    Pay 12.55 USDC
+                </button>
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant mt-xs opacity-70 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 14px;">lock</span> Smart Contract Secured
+                </p>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-white/10 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-white/5 py-8 px-6 flex flex-col md:flex-row justify-between items-center mt-auto">
+<div class="font-bold text-slate-900 dark:text-white mb-4 md:mb-0">EventMesh</div>
+<div class="text-xs font-light text-slate-500 text-center md:text-left mb-4 md:mb-0">
+            © 2026 EventMesh Protocol. Built for the Decentralized Web.
+        </div>
+<div class="flex gap-4">
+<a class="text-xs font-light text-slate-500 hover:text-slate-300 hover:underline" href="#">Terms</a>
+<a class="text-xs font-light text-slate-500 hover:text-slate-300 hover:underline" href="#">Privacy</a>
+<a class="text-xs font-light text-slate-500 hover:text-slate-300 hover:underline" href="#">Docs</a>
+<a class="text-xs font-light text-slate-500 hover:text-slate-300 hover:underline" href="#">Support</a>
+</div>
+</footer>
+</body></html>
