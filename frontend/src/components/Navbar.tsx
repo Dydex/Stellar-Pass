@@ -17,113 +17,40 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header
-      className="glass"
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 90,
-        borderRadius: 0,
-        borderTop: "none",
-        borderLeft: "none",
-        borderRight: "none",
-        borderBottom: "1px solid var(--em-border)",
-      }}
-    >
+    <header className="glass sticky top-0 z-[90] rounded-none border-x-0 border-t-0 border-b border-b-outline-variant/70">
       {/* Gradient accent line at very top */}
-      <div
-        style={{
-          height: "2px",
-          background: "var(--em-accent-gradient-h)",
-          width: "100%",
-        }}
-      />
+      <div className="h-0.5 w-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
 
-      <nav
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: "64px",
-        }}
-      >
+      <nav className="mx-auto flex h-16 max-w-container-max items-center justify-between px-gutter">
         {/* Logo */}
         <Link
           href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            textDecoration: "none",
-            color: "inherit",
-          }}
+          className="flex items-center gap-2.5 text-inherit no-underline"
           id="nav-logo"
         >
-          <div
-            style={{
-              width: "32px",
-              height: "32px",
-              borderRadius: "10px",
-              background: "var(--em-accent-gradient)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "16px",
-              fontWeight: 700,
-              color: "#fff",
-              boxShadow: "0 2px 12px rgba(124,58,237,0.3)",
-            }}
-          >
+          <div className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[var(--em-accent-gradient)] text-[16px] font-bold text-white shadow-[0_2px_12px_rgba(124,58,237,0.3)]">
             E
           </div>
-          <span style={{ fontWeight: 700, fontSize: "1.15rem", letterSpacing: "-0.02em" }}>
+          <span className="text-[1.15rem] font-bold tracking-[-0.02em]">
             Event<span className="gradient-text">Mesh</span>
           </span>
         </Link>
 
         {/* Desktop nav links */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "4px",
-          }}
-          className="nav-desktop"
-        >
+        <div className="nav-desktop hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => {
-            const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
+            const isActive =
+              pathname === link.href || pathname.startsWith(link.href + "/");
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="btn-ghost"
-                style={{
-                  color: isActive ? "var(--em-text)" : "var(--em-text-muted)",
-                  background: isActive ? "var(--em-surface)" : "transparent",
-                  borderRadius: "var(--em-radius-sm)",
-                  fontSize: "0.875rem",
-                  textDecoration: "none",
-                  position: "relative",
-                }}
+                className={`btn-ghost relative rounded-sm text-[0.875rem] no-underline ${isActive ? "bg-surface text-on-surface" : "bg-transparent text-on-surface-variant"}`}
                 id={`nav-link-${link.label.toLowerCase().replace(/\s/g, "-")}`}
               >
                 {link.label}
                 {isActive && (
-                  <span
-                    style={{
-                      position: "absolute",
-                      bottom: "-1px",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      width: "16px",
-                      height: "2px",
-                      background: "var(--em-accent-gradient-h)",
-                      borderRadius: "999px",
-                    }}
-                  />
+                  <span className="absolute bottom-[-1px] left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                 )}
               </Link>
             );
@@ -131,20 +58,26 @@ export default function Navbar() {
         </div>
 
         {/* Right side: wallet + mobile menu toggle */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <div className="nav-desktop">
+        <div className="flex items-center gap-3">
+          <div className="nav-desktop hidden md:block">
             <ConnectWallet />
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="btn-ghost nav-mobile-toggle"
+            className="btn-ghost nav-mobile-toggle hidden p-2 md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
             id="nav-mobile-toggle"
-            style={{ padding: "8px" }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               {mobileOpen ? (
                 <path d="M18 6L6 18M6 6l12 12" />
               ) : (
@@ -161,59 +94,25 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div
-          className="animate-fade-in nav-mobile-menu"
-          style={{
-            padding: "8px 24px 20px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "4px",
-            borderTop: "1px solid var(--em-border)",
-          }}
-        >
+        <div className="nav-mobile-menu animate-fade-in flex flex-col gap-1 border-t border-outline-variant/70 px-gutter pb-5 pt-2 md:hidden">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="btn-ghost"
-                style={{
-                  justifyContent: "flex-start",
-                  color: isActive ? "var(--em-text)" : "var(--em-text-muted)",
-                  textDecoration: "none",
-                }}
+                className={`btn-ghost justify-start no-underline ${isActive ? "text-on-surface" : "text-on-surface-variant"}`}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </Link>
             );
           })}
-          <div style={{ marginTop: "8px" }}>
+          <div className="mt-2">
             <ConnectWallet />
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        .nav-mobile-toggle {
-          display: none;
-        }
-        .nav-mobile-menu {
-          display: none;
-        }
-        @media (max-width: 768px) {
-          .nav-desktop {
-            display: none !important;
-          }
-          .nav-mobile-toggle {
-            display: flex !important;
-          }
-          .nav-mobile-menu {
-            display: flex !important;
-          }
-        }
-      `}</style>
     </header>
   );
 }

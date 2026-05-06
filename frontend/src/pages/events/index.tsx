@@ -9,23 +9,29 @@ const EVENTS = [
   {
     title: "Neon Nights Festival",
     location: "San Francisco",
-    description: "Experience the pulse of electronic music under the stars with world-class DJs and immersive light shows.",
+    description:
+      "Experience the pulse of electronic music under the stars with world-class DJs and immersive light shows.",
     attending: 142,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCGaSYXnnhcZv-Y2BxFFautJVcUNdJSy4laQsqLg2dGeSckuk9rFEt__1MQOWFQburNHkuquu_e2TzTQjEGgqU-26t89kX-M46MjJ2Jq4Zl2SQcSCjpi6FfHbhRnVrBpP13jYpBnbNngM6tYtG1umPo9dgMUtoaSWY_nQ6ogSlMLGCJH1B8-v9Kqliy6Cyxh3hBX6H6M-7CHK5VnuLf5Jtug6Q3IooEQM871_64SlOFnfA7EIyDwmY47eTdHLX183iqdZp0oMeGZFI",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCGaSYXnnhcZv-Y2BxFFautJVcUNdJSy4laQsqLg2dGeSckuk9rFEt__1MQOWFQburNHkuquu_e2TzTQjEGgqU-26t89kX-M46MjJ2Jq4Zl2SQcSCjpi6FfHbhRnVrBpP13jYpBnbNngM6tYtG1umPo9dgMUtoaSWY_nQ6ogSlMLGCJH1B8-v9Kqliy6Cyxh3hBX6H6M-7CHK5VnuLf5Jtug6Q3IooEQM871_64SlOFnfA7EIyDwmY47eTdHLX183iqdZp0oMeGZFI",
   },
   {
     title: "DeFi Innovators Summit",
     location: "Lagos",
-    description: "Join industry leaders for deep dives into decentralized finance, protocol security, and liquidity mining strategies.",
+    description:
+      "Join industry leaders for deep dives into decentralized finance, protocol security, and liquidity mining strategies.",
     attending: 87,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUrTkLhiG71MnZBeTXNpubu9Ht4OGMy_X4FU7DlmlX6TShElBJ8z0i-tASWuaLoe79MrZWxD4lFMtBhPVAYa7lQz1QszmXpdwZIrymCcQEuhaPEO4xd84FHWz5lXMWyNQqWX4mvaeQlwAa2JqnNivclhQVIr-EX_m8NQ1lL_QRRmQOcwvvcmgR742GJgD0Wd1xZpHSZLdnI7GA_MJwwA-q-TFStHq1Ef_K8sZVRYxrgIZgu5iHgjTitFGKDe_7L_Wt8Yzs1pn6tH8",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCUrTkLhiG71MnZBeTXNpubu9Ht4OGMy_X4FU7DlmlX6TShElBJ8z0i-tASWuaLoe79MrZWxD4lFMtBhPVAYa7lQz1QszmXpdwZIrymCcQEuhaPEO4xd84FHWz5lXMWyNQqWX4mvaeQlwAa2JqnNivclhQVIr-EX_m8NQ1lL_QRRmQOcwvvcmgR742GJgD0Wd1xZpHSZLdnI7GA_MJwwA-q-TFStHq1Ef_K8sZVRYxrgIZgu5iHgjTitFGKDe_7L_Wt8Yzs1pn6tH8",
   },
   {
     title: "Digital Renaissance Gallery",
     location: "Berlin",
-    description: "Exploring the intersection of classical art techniques and generative AI in the heart of Europe's creative hub.",
+    description:
+      "Exploring the intersection of classical art techniques and generative AI in the heart of Europe's creative hub.",
     attending: 534,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA9VAQ0tlpxndubROib8yLPSiejDNYbSMTV5uLjb539m99dAC_F3Ik34ZB93Iyid067b32pkvdqO0oW_1Hh4-d8moYPYLq3-dwK-_wRfE5qh5-SoxR6RUoBVt8DE54uQXoaBbz97bQapnnOieFJjzxl7oVLRFvxuxRjpP6e6IXq86leAweMWUX3z8_6QCLnlguD81i_eKK7lm7nnGuAJfIaMaI50y6whVJugRCuLI_SsCCUIlBvAJoslGoxGZAbh9loALHX3L02WFw",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA9VAQ0tlpxndubROib8yLPSiejDNYbSMTV5uLjb539m99dAC_F3Ik34ZB93Iyid067b32pkvdqO0oW_1Hh4-d8moYPYLq3-dwK-_wRfE5qh5-SoxR6RUoBVt8DE54uQXoaBbz97bQapnnOieFJjzxl7oVLRFvxuxRjpP6e6IXq86leAweMWUX3z8_6QCLnlguD81i_eKK7lm7nnGuAJfIaMaI50y6whVJugRCuLI_SsCCUIlBvAJoslGoxGZAbh9loALHX3L02WFw",
   },
 ];
 
@@ -44,11 +50,14 @@ export default function ExplorePage() {
       {/* ── TopNavBar ── */}
       <header className="fixed top-0 w-full border-b border-white/10 bg-white/5 dark:bg-slate-950/50 backdrop-blur-lg shadow-sm z-50 flex justify-between items-center px-6 py-3">
         <div className="flex items-center gap-6">
-          <Link href="/" className="text-xl font-bold tracking-tight text-white text-h2">
+          <Link
+            href="/"
+            className="text-xl font-bold tracking-tight text-white text-h2"
+          >
             EventMesh
           </Link>
           <div className="relative hidden md:block">
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-sm" style={{ fontSize: "18px" }}>
+            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant">
               search
             </span>
             <input
@@ -60,14 +69,36 @@ export default function ExplorePage() {
           </div>
         </div>
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/events" className="text-indigo-400 border-b-2 border-indigo-500 pb-1 text-body-md transition-all">Explore</Link>
-          <Link href="/create" className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded">Create</Link>
-          <Link href="/vendors" className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded">Vendors</Link>
-          <Link href="/dashboard" className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded">Activity</Link>
+          <Link
+            href="/events"
+            className="text-indigo-400 border-b-2 border-indigo-500 pb-1 text-body-md transition-all"
+          >
+            Explore
+          </Link>
+          <Link
+            href="/create"
+            className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded"
+          >
+            Create
+          </Link>
+          <Link
+            href="/vendors"
+            className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded"
+          >
+            Vendors
+          </Link>
+          <Link
+            href="/dashboard"
+            className="text-slate-400 hover:text-indigo-500 text-body-md hover:bg-white/10 transition-colors duration-200 px-2 py-1 rounded"
+          >
+            Activity
+          </Link>
         </nav>
         <div className="flex items-center gap-4">
           <button className="bg-primary text-on-primary text-body-sm font-medium px-4 py-2 rounded-full hover:opacity-90 transition-opacity flex items-center gap-2 border border-primary/50">
-            <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>account_balance_wallet</span>
+            <span className="material-symbols-outlined text-[16px]">
+              account_balance_wallet
+            </span>
             Connect Wallet
           </button>
           <div className="w-8 h-8 rounded-full bg-surface-variant border border-white/10 hidden md:block overflow-hidden">
@@ -80,8 +111,12 @@ export default function ExplorePage() {
         {/* ── SideNavBar ── */}
         <aside className="hidden lg:flex flex-col h-screen w-64 border-r border-white/5 bg-slate-900/80 backdrop-blur-md sticky left-0 top-0 pt-20 px-4">
           <div className="mb-8 px-4">
-            <div className="text-lg font-bold text-indigo-500 text-h2 mb-1">Event Manager</div>
-            <div className="text-slate-500 text-xs text-body-sm">Institutional Grade</div>
+            <div className="text-lg font-bold text-indigo-500 text-h2 mb-1">
+              Event Manager
+            </div>
+            <div className="text-slate-500 text-xs text-body-sm">
+              Institutional Grade
+            </div>
           </div>
           <nav className="flex-1 space-y-2">
             {SIDE_NAV.map((item) => (
@@ -122,9 +157,13 @@ export default function ExplorePage() {
                 <span className="inline-block px-3 py-1 bg-primary-container/20 text-primary border border-primary/30 rounded-full text-label-caps mb-4 backdrop-blur-md">
                   FEATURED EVENT
                 </span>
-                <h1 className="text-display text-white mb-2">Web3 Builders Conference</h1>
+                <h1 className="text-display text-white mb-2">
+                  Web3 Builders Conference
+                </h1>
                 <p className="text-body-lg text-on-surface-variant max-w-2xl">
-                  The premier gathering of developers, founders, and investors shaping the decentralized future. Join us for 3 days of intensive workshops and networking.
+                  The premier gathering of developers, founders, and investors
+                  shaping the decentralized future. Join us for 3 days of
+                  intensive workshops and networking.
                 </p>
               </div>
               <button className="bg-primary text-on-primary text-body-md px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity whitespace-nowrap border border-primary/50 shadow-[0_0_15px_rgba(192,193,255,0.3)]">
@@ -151,11 +190,15 @@ export default function ExplorePage() {
             </div>
             <div className="flex items-center gap-2">
               <button className="flex items-center gap-2 px-3 py-2 bg-surface border border-white/10 rounded-lg text-on-surface-variant text-body-sm hover:bg-surface-bright transition-colors">
-                <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>sort</span>
+                <span className="material-symbols-outlined text-[18px]">
+                  sort
+                </span>
                 Sort by Date
               </button>
               <button className="flex items-center gap-2 px-3 py-2 bg-surface border border-white/10 rounded-lg text-on-surface-variant text-body-sm hover:bg-surface-bright transition-colors">
-                <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>filter_list</span>
+                <span className="material-symbols-outlined text-[18px]">
+                  filter_list
+                </span>
                 Filters
               </button>
             </div>
@@ -177,18 +220,24 @@ export default function ExplorePage() {
                     src={event.image}
                   />
                   <div className="absolute bottom-3 left-3 flex items-center gap-1 px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white text-body-sm text-[12px]">
-                    <span className="material-symbols-outlined" style={{ fontSize: "14px" }}>location_on</span>
+                    <span className="material-symbols-outlined text-[14px]">
+                      location_on
+                    </span>
                     {event.location}
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-h2 text-on-surface mb-3">{event.title}</h3>
+                  <h3 className="text-h2 text-on-surface mb-3">
+                    {event.title}
+                  </h3>
                   <p className="text-on-surface-variant text-body-sm line-clamp-3 mb-6">
                     {event.description}
                   </p>
                   <div className="mt-auto flex justify-between items-center">
                     <div className="flex items-center gap-2 text-on-surface-variant text-[12px]">
-                      <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>group</span>
+                      <span className="material-symbols-outlined text-[16px]">
+                        group
+                      </span>
                       {event.attending} attending
                     </div>
                     <div className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-lg text-primary text-label-caps text-[10px] tracking-wider">
@@ -204,11 +253,19 @@ export default function ExplorePage() {
 
       {/* ── Footer ── */}
       <footer className="w-full border-t border-white/5 bg-slate-950 py-8 px-6 flex flex-col md:flex-row justify-between items-center mt-auto">
-        <div className="font-bold text-white text-body-md mb-4 md:mb-0">EventMesh Protocol</div>
-        <div className="text-xs font-light text-slate-500 text-body-sm mb-4 md:mb-0">© 2026 EventMesh Protocol. Built for the Decentralized Web.</div>
+        <div className="font-bold text-white text-body-md mb-4 md:mb-0">
+          EventMesh Protocol
+        </div>
+        <div className="text-xs font-light text-slate-500 text-body-sm mb-4 md:mb-0">
+          © 2026 EventMesh Protocol. Built for the Decentralized Web.
+        </div>
         <div className="flex gap-4">
           {["Terms", "Privacy", "Docs", "Support"].map((link) => (
-            <a key={link} className="text-slate-500 hover:text-slate-300 text-body-sm hover:underline" href="#">
+            <a
+              key={link}
+              className="text-slate-500 hover:text-slate-300 text-body-sm hover:underline"
+              href="#"
+            >
               {link}
             </a>
           ))}

@@ -25,7 +25,11 @@ export default function CreateEventPage() {
     if (!form.date) return "Oct 24, 2026 • 14:00 UTC";
     const d = new Date(form.date + "T" + (form.time || "00:00"));
     return (
-      d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) +
+      d.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }) +
       " • " +
       (form.time || "00:00") +
       " UTC"
@@ -41,7 +45,10 @@ export default function CreateEventPage() {
       {/* ── TopNavBar ── */}
       <header className="bg-white/5 dark:bg-slate-950/50 backdrop-blur-lg fixed top-0 w-full border-b border-white/10 shadow-sm flex justify-between items-center px-6 py-3 z-50">
         <div className="flex items-center gap-[48px]">
-          <Link href="/events" className="text-xl font-bold tracking-tight text-white">
+          <Link
+            href="/events"
+            className="text-xl font-bold tracking-tight text-white"
+          >
             EventMesh
           </Link>
           <nav className="hidden md:flex items-center gap-[24px]">
@@ -73,7 +80,7 @@ export default function CreateEventPage() {
         </div>
         <div className="flex items-center gap-[16px]">
           <button className="bg-surface-container-high border border-outline-variant text-on-surface text-body-sm px-[16px] py-[8px] rounded-full flex items-center gap-[8px] hover:bg-surface-variant transition-colors">
-            <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>
+            <span className="material-symbols-outlined text-[18px]">
               account_balance_wallet
             </span>
             Connect Wallet
@@ -90,8 +97,8 @@ export default function CreateEventPage() {
         <div className="mb-[24px]">
           <h1 className="text-h1 text-on-background mb-[4px]">Create Event</h1>
           <p className="text-body-md text-on-surface-variant">
-            Configure your institutional-grade event parameters and generate NFT ticketing
-            infrastructure.
+            Configure your institutional-grade event parameters and generate NFT
+            ticketing infrastructure.
           </p>
         </div>
 
@@ -101,7 +108,9 @@ export default function CreateEventPage() {
             {/* Section: Event Details */}
             <section className="bg-surface-container border border-outline-variant rounded-xl p-[24px]">
               <h2 className="text-h2 text-on-surface mb-[16px] flex items-center gap-[8px]">
-                <span className="material-symbols-outlined text-primary">info</span>
+                <span className="material-symbols-outlined text-primary">
+                  info
+                </span>
                 Event Details
               </h2>
               <div className="flex flex-col gap-[16px]">
@@ -176,7 +185,9 @@ export default function CreateEventPage() {
             {/* Section: Gate Fee */}
             <section className="bg-surface-container border border-outline-variant rounded-xl p-[24px]">
               <h2 className="text-h2 text-on-surface mb-[16px] flex items-center gap-[8px]">
-                <span className="material-symbols-outlined text-primary">payments</span>
+                <span className="material-symbols-outlined text-primary">
+                  payments
+                </span>
                 Gate Fee Configuration
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
@@ -221,7 +232,9 @@ export default function CreateEventPage() {
             <section className="bg-surface-container border border-outline-variant rounded-xl p-[24px]">
               <div className="flex justify-between items-start mb-[16px]">
                 <h2 className="text-h2 text-on-surface flex items-center gap-[8px]">
-                  <span className="material-symbols-outlined text-primary">token</span>
+                  <span className="material-symbols-outlined text-primary">
+                    token
+                  </span>
                   NFT Ticketing Assets
                 </h2>
                 <div className="px-[8px] py-[4px] bg-secondary/10 border border-secondary/20 rounded text-secondary text-label-caps">
@@ -279,7 +292,7 @@ export default function CreateEventPage() {
                 className="bg-primary text-on-primary text-body-md font-medium px-[48px] py-[8px] rounded-lg hover:bg-primary-fixed-dim transition-all flex items-center gap-[8px] shadow-[0_0_15px_rgba(192,193,255,0.2)]"
                 id="create-event-submit"
               >
-                <span className="material-symbols-outlined icon-fill" style={{ fontSize: "20px" }}>
+                <span className="material-symbols-outlined icon-fill text-[20px]">
                   rocket_launch
                 </span>
                 Create Event
@@ -307,10 +320,7 @@ export default function CreateEventPage() {
                   {/* Badge */}
                   <div className="absolute top-[16px] left-[16px] flex gap-[8px]">
                     <span className="bg-surface-container/80 backdrop-blur-md border border-outline-variant text-on-surface text-label-caps px-[8px] py-[4px] rounded flex items-center gap-[4px]">
-                      <span
-                        className="material-symbols-outlined text-secondary"
-                        style={{ fontSize: "14px" }}
-                      >
+                      <span className="material-symbols-outlined text-[14px] text-secondary">
                         radio_button_checked
                       </span>
                       Upcoming
@@ -323,7 +333,7 @@ export default function CreateEventPage() {
                     {form.name || "Global Web3 Summit 2026"}
                   </h4>
                   <div className="flex items-center gap-[8px] mb-[24px] text-on-surface-variant">
-                    <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
+                    <span className="material-symbols-outlined text-[16px]">
                       calendar_month
                     </span>
                     <span className="text-body-sm">{previewDate}</span>
@@ -337,7 +347,9 @@ export default function CreateEventPage() {
                         <span className="text-mono text-on-surface">
                           {form.price || "0.05"}
                         </span>
-                        <span className="text-label-caps text-primary">USDC</span>
+                        <span className="text-label-caps text-primary">
+                          USDC
+                        </span>
                       </div>
                     </div>
                     <div className="text-right">
@@ -350,7 +362,7 @@ export default function CreateEventPage() {
                     </div>
                   </div>
                   <button className="w-full mt-[24px] bg-surface-variant border border-outline-variant text-on-surface-variant text-body-md py-[8px] rounded-lg cursor-not-allowed opacity-50 flex justify-center items-center gap-[8px]">
-                    <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
+                    <span className="material-symbols-outlined text-[20px]">
                       lock
                     </span>
                     Preview Mode
